@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+}
+
+.form {
+  background-image: url(scramble.jpg);
+  text-align: center;
+  color: #ffffff;
+  padding-bottom: 2%;
+}
+
+#sportsguy{
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  padding: 1%;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Best Muthafukin Sports App evah!!</title>
+</head>
+
+<body>
+    <div class='form'>
+        <h1>Best Muthafukin Sports App EVAH!!</h1>
+        <form action="/action_page.php">
+            The Name:<br><input type="text" name="thename" placeholder="Big Balls McGee">
+            <br> The Picture URL:<br><input type="text" name="thepicture" placeholder="awesomepic.com">
+            <br> The Sport:<br><input type="text" name="thesport" placeholder="Ye Olde Midget Toss">
+            <br> Them Achievements:<br><input type="text" name="themcheevz" placeholder="Best of Tossin' Midgets '13'">
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div id="sportsguy"></div>
+
+    <script>
+        var container = document.getElementById('sportsguy');
+        fetch('http://localhost:1338/api/sportsfigure', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: 'Roy "Cuddles" Merrin',
+                pictureUrl: 'https://www.google.com/imgres?imgurl=http%3A%2F%2Fthelongestlistofthelongeststuffatthelongestdomainnameatlonglast.com%2Fimages%2Ftoss.JPG&imgrefurl=http%3A%2F%2Fthelongestlistofthelongeststuffatthelongestdomainnameatlonglast.com%2Flong249.html&docid=LqH6dsVFwG3Q_M&tbnid=I6aF5WXW890xSM%3A&vet=10ahUKEwifuPju2oLWAhUS9GMKHcAoAM0QMwgrKAQwBA..i&w=215&h=167&bih=662&biw=1366&q=champion%20midget%20tossing&ved=0ahUKEwifuPju2oLWAhUS9GMKHcAoAM0QMwgrKAQwBA&iact=mrc&uact=8',
+                sport: 'midget tossing',
+                achievements: ['threw midgets super far']
+            })
+        })
+    </script>
+</body>
+
+</html>
