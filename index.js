@@ -4,9 +4,10 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const db = mongoose.createConnection('mongodb://localhost/sports-figures-db');
-
+const cors = require('cors');
 const sportsFigure = require('./sportsFigure.js')(db);
 
+app.use(cors());
 app.use(bodyParser.json());
 
 //root route
@@ -35,15 +36,15 @@ app.post('/api/sportsfigure', function(req,res){
     })
 });
 
-app.delete('/api/sportsfigure:id', function(req,res){
-  let query = `DELETE FROM sportsfigure WHERE id=${req.params.id}`;
-  connection.query(query, function(err, rows) {
-    if(err){
-      console.log(err);
-      return res.sendStatus(500);//internal server error status code
-    }
-    res.send('Success deleting id: ' +id);
-  });
-});
+// app.delete('/api/sportsfigure:id', function(req,res){
+//   let query = `DELETE FROM sportsfigure WHERE id=${req.params.id}`;
+//   connection.query(query, function(err, rows) {
+//     if(err){
+//       console.log(err);
+//       return res.sendStatus(500);//internal server error status code
+//     }
+//     res.send('Success deleting id: ' +id);
+//   });
+// });
 
 app.listen(1338, ()=>console.log('Heyo!!!!'));
